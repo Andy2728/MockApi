@@ -1,13 +1,13 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 [ApiController]
 [Route("[controller]")]
-public class MockController : ControllerBase
+public class LoginController : ControllerBase
 {
     private readonly RequestStorage _requestStorage;
 
-    public MockController(RequestStorage requestStorage)
+    public LoginController(RequestStorage requestStorage)
     {
         _requestStorage = requestStorage;
     }
