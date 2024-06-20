@@ -1,6 +1,231 @@
-﻿namespace MockApi.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace MockApi.Models;
 
 public class InvoiceResponse
 {
-    public string Invoice { get; set; }
+    public Invoice Invoice { get; set; }
+    public string ErrorMessage { get; set; }
+    public bool IsError { get; set; }
+    public string WarningMessage { get; set; }
+    public bool IsWarning { get; set; }
+}
+
+public class Invoice
+{
+    public bool CurrencyOverriddenFromScreen { get; set; }
+    public int INVID { get; set; }
+    public string INVInvoiceNumber { get; set; }
+    public DateTime INVInvoiceDate { get; set; }
+    public string INVInvoiceDate_String { get; set; }
+    public DateTime INVInvoiceDueDate { get; set; }
+    public string INVInvoiceDueDate_String { get; set; }
+    public int BillingCusID { get; set; }
+    public string BillingCusCode { get; set; }
+    public string BillingCusName { get; set; }
+    public string BillingCusEmail { get; set; }
+    public string BillingCusPhone { get; set; }
+    public int BillingSiteID { get; set; }
+    public int IISID { get; set; }
+    public string INVInvoiceReference { get; set; }
+    public string QQAKey { get; set; }
+    public string QQADKey { get; set; }
+    public bool IsCreditNote { get; set; }
+    public bool INVInternallyInvoiced { get; set; }
+    public bool INVIsSalesInvoice { get; set; }
+    public DateTime? INVDateExported { get; set; }
+    public string INVDateExported_String { get; set; }
+    public string CurCode { get; set; }
+    public string CurRate { get; set; }
+    public DateTime? CurDate { get; set; }
+    public bool CurForeignFixed { get; set; }
+    public decimal? INVInvoiceSubTotal_ForeignAmount { get; set; }
+    public decimal? INVInvoiceTotal_ForeignAmount { get; set; }
+    public decimal? INVInvoiceGST_ForeignAmount { get; set; }
+    public List<InvoiceDetail> InvoiceDetails { get; set; }
+    public List<InvoiceSummaryDetail> InvoiceSummaryDetails { get; set; }
+    public decimal INVInvoiceTotal { get; set; }
+    public decimal INVAmountPaid { get; set; }
+    public decimal INVInvoiceGST { get; set; }
+    public decimal INVInvoiceSubTotal { get; set; }
+    public bool INVIsCreditTopUp { get; set; }
+    public int? INVID_IntersiteInvoice { get; set; }
+    public int? INVID_CreditedFrom { get; set; }
+    public int? INVID_ConsolidatedTo { get; set; }
+    public bool GatewayTransactionAwaitingResponse { get; set; }
+    public bool? INVExcludeFromAccountStatusCheck { get; set; }
+    public string INVDescription { get; set; }
+    public string INVNotes { get; set; }
+    public int? INVSupplierSiteID { get; set; }
+    public string INVSupplierSiteName { get; set; }
+    public bool IsReinvoice { get; set; }
+    public bool InvoiceRemaining { get; set; }
+    public string INVReference1 { get; set; }
+    public string INVReference2 { get; set; }
+    public string INVReference3 { get; set; }
+    public string INVReference4 { get; set; }
+    public string INVReference5 { get; set; }
+    public string INVReference6 { get; set; }
+    public string INVReference7 { get; set; }
+    public string INVReference8 { get; set; }
+    public string INVReference9 { get; set; }
+    public string INVReference10 { get; set; }
+    public string INVReference11 { get; set; }
+    public string INVReference12 { get; set; }
+    public string INVReference13 { get; set; }
+    public string INVReference14 { get; set; }
+    public string INVReference15 { get; set; }
+    public string INVReference16 { get; set; }
+    public string INVReference17 { get; set; }
+    public string INVReference18 { get; set; }
+    public string INVReference19 { get; set; }
+    public string INVReference20 { get; set; }
+    public string INVReference21 { get; set; }
+    public string INVReference22 { get; set; }
+    public string INVReference23 { get; set; }
+    public string INVReference24 { get; set; }
+    public string INVReference25 { get; set; }
+    public string INVReference26 { get; set; }
+    public string INVReference27 { get; set; }
+    public string INVReference28 { get; set; }
+    public string INVReference29 { get; set; }
+    public string INVReference30 { get; set; }
+    public string HistoryDescription { get; set; }
+    public bool INVCanExport { get; set; }
+    public bool INVIsReadOnly { get; set; }
+    public bool INVHasSupplierLines { get; set; }
+    public bool CanConsolidate { get; set; }
+    public string TaxIntegrationError { get; set; }
+}
+
+public class InvoiceDetail
+{
+    // Add all properties for InvoiceDetail
+    public int LineNumber { get; set; }
+    public int IDTID { get; set; }
+    public string IDTDescription { get; set; }
+    public decimal IDTQuantity { get; set; }
+    public int IDTKinds { get; set; }
+    public string IDTItemCode { get; set; }
+    public string TrackingCode { get; set; }
+    public string TrackingCode2 { get; set; }
+    public string IGLACode { get; set; }
+    public string IGLAName { get; set; }
+    public bool IGLASuppressConsolidation { get; set; }
+    public string IDTGSTName { get; set; }
+    public string IDTGSTCode { get; set; }
+    public decimal IDTGSTRate { get; set; }
+    public decimal Quoted { get; set; }
+    public decimal Actual { get; set; }
+    public string QQADKey { get; set; }
+    public string QMCKey { get; set; }
+    public List<int> SOIKeys { get; set; }
+    public List<int> QuotedSOIKeys { get; set; }
+    public string IIDRefNo { get; set; }
+    public string IIDTitle { get; set; }
+    public string cusName { get; set; }
+    public string _POKey { get; set; }
+    public List<int> POKeys { get; set; }
+    public string QQDSName { get; set; }
+    public bool IsPaperLine { get; set; }
+    public string CurCode { get; set; }
+    public string CurRate { get; set; }
+    public DateTime? CurDate { get; set; }
+    public bool CurForeignFixed { get; set; }
+    public decimal? IDTPrice_ForeignAmount { get; set; }
+    public decimal? IDTPriceAdjustment_ForeignAmount { get; set; }
+    public string QuotedCurCode { get; set; }
+    public int RecordID { get; set; }
+    public int IICTKey { get; set; }
+    public int? SOKey { get; set; }
+    public int? cusID { get; set; }
+    public bool IsBalanceLine { get; set; }
+    public bool IsCampaign { get; set; }
+    public string CampaignCode { get; set; }
+    public string RelatedQQADKey { get; set; }
+    public string INVRelatedQJSKey { get; set; }
+    public string INVRelatedSOKey { get; set; }
+    public string INVRelatedQQAKitKey { get; set; }
+    public string IPOLKey { get; set; }
+    public string POPKey { get; set; }
+    public string INVRelatedIPOKey { get; set; }
+    public string Address { get; set; }
+    public string OriginAddress { get; set; }
+    public int? adrID { get; set; }
+    public int? adrID_Origin { get; set; }
+    public decimal? IDTFreightPrice { get; set; }
+    public decimal? IDTFreightPrice_ForeignAmount { get; set; }
+    public string FSKey { get; set; }
+    public string FDKey { get; set; }
+    public string ProductTaxCode { get; set; }
+    public int IMKey { get; set; }
+    public string ApplicationPath { get; set; }
+    public int ChargeType { get; set; }
+    public string IDTTooltip { get; set; }
+    public string ProdStatusID { get; set; }
+    public decimal? ExistingAmountPaid { get; set; }
+    public string INVRelatedIDTID { get; set; }
+    public string IIDFullAddress { get; set; }
+    public string IIDDestAddress { get; set; }
+    public string IIDDestAddressName { get; set; }
+    public string IIDDestAddressLine1 { get; set; }
+    public string IIDDestAddressLine2 { get; set; }
+    public string IIDDestAddressLine3 { get; set; }
+    public string IIDDestAddressCity { get; set; }
+    public string IIDDestAddressCountry { get; set; }
+    public string IIDDestAddressPostCode { get; set; }
+    public string IIDDestAddressStateAbbrev { get; set; }
+    public string IIDDestAddressStateName { get; set; }
+    public string IIDDestAddressCountryISOAlpha2 { get; set; }
+    public int? IIDDestAddressCountryID { get; set; }
+    public string IIDOriginFullAddress { get; set; }
+    public string IIDOriginAddress { get; set; }
+    public string IIDOriginAddressName { get; set; }
+    public string IIDOriginAddressLine1 { get; set; }
+    public string IIDOriginAddressLine2 { get; set; }
+    public string IIDOriginAddressLine3 { get; set; }
+    public string IIDOriginAddressCity { get; set; }
+    public string IIDOriginAddressCountry { get; set; }
+    public string IIDOriginAddressPostCode { get; set; }
+    public string IIDOriginAddressStateAbbrev { get; set; }
+    public string IIDOriginAddressStateName { get; set; }
+    public string IIDOriginAddressCountryISOAlpha2 { get; set; }
+    public int? IIDOriginAddressCountryID { get; set; }
+    public bool IsValid { get; set; }
+    public string LineQuantity { get; set; }
+    public string IDTGSTValue { get; set; }
+    public decimal IDTGSTDisplayRate { get; set; }
+    public decimal BasePrice { get; set; }
+    public string AddressHash { get; set; }
+    public string AddressTaxHash { get; set; }
+    public decimal? CommissionRate { get; set; }
+    public decimal? CommissionAmount { get; set; }
+    public decimal? CommissionAmount_ForeignAmount { get; set; }
+    public decimal? CommissionRatePercentage { get; set; }
+    public string QQDKey { get; set; }
+    public string QuotedSOKey { get; set; }
+    public string QuotedSOIKey { get; set; }
+    public string QQKitKey { get; set; }
+    public string InvoiceCusCode { get; set; }
+    public decimal? IDTOriginalCost { get; set; }
+    public decimal? IDTOriginalFreightCost { get; set; }
+    public bool LineIsDeposit { get; set; }
+}
+
+public class InvoiceSummaryDetail
+{
+    public int LineNumber { get; set; }
+    public string Description { get; set; }
+    public decimal Quantity { get; set; }
+    public decimal Price_ExTax { get; set; }
+    public decimal Price_Tax { get; set; }
+    public decimal Price_IncTax { get; set; }
+    public string JobNumber { get; set; }
+    public string JobTitle { get; set; }
+    public string PONumber { get; set; }
+    public string QuoteNumber { get; set; }
+    public string QQADKey { get; set; }
+    public string SOKey { get; set; }
+    public bool IsCreditCardSurcharge { get; set; }
 }
