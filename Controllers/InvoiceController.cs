@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-
+using MockApi.Models;
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class InvoiceController : ControllerBase
 {
     private readonly RequestStorage _requestStorage;
@@ -13,10 +13,18 @@ public class InvoiceController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody] object request)
+    public async Task<IActionResult> Post([FromQuery] string LoginToken, [FromBody] object request)
     {
-        var requestData = request.ToString();
+        var requestData = $"LoginToken: {LoginToken}, RequestBody: {request.ToString()}";
         await _requestStorage.AddRequestAsync(requestData);
-        return Ok();
+
+        // Create the response object
+        var response = new InvoiceResponse
+        {
+            Invoice = "IV00000"
+        };
+
+        // Return the response as JSON
+        return Ok(response);
     }
 }
