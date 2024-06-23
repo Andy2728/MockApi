@@ -13,9 +13,9 @@ public class LoginController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post([FromQuery] string user, [FromQuery] string password, [FromQuery] string apiname, [FromQuery] string apikey)
+    public async Task<IActionResult> Post([FromQuery] string UserName, [FromQuery] string Password, [FromQuery] string ApplicationName, [FromQuery] string ApplicationKey)
     {
-        var requestData = $"User: {user}, Password: {password}, ApiName: {apiname}, ApiKey: {apikey}";
+        var requestData = $"UserName: {UserName}, Password: {Password}, ApplicationName: {ApplicationName}, ApplicationKey: {ApplicationKey}";
         await _requestStorage.AddRequestAsync(requestData);
 
         // Mock token
