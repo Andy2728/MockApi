@@ -1,22 +1,42 @@
-using System;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using MockApi.Models;
+using System;
+using System.Collections.Generic;
+
+namespace MockApi.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
-public class InvoiceController : ControllerBase
+[Route("api/QuoteProcess")]
+public class QuoteProcessController : ControllerBase
 {
     private readonly RequestStorage _requestStorage;
 
-    public InvoiceController(RequestStorage requestStorage)
+    public QuoteProcessController(RequestStorage requestStorage)
     {
         _requestStorage = requestStorage;
     }
 
-    [HttpPost]
-    public async Task<IActionResult> Post([FromQuery] string LoginToken, [FromBody] object request)
+    [HttpPost("GetApplicationLogInToken")]
+    public async Task<IActionResult> GetApplicationLogInToken(
+        [FromQuery] string UserName,
+        [FromQuery] string Password,
+        [FromQuery] string ApplicationName,
+        [FromQuery] string ApplicationKey)
+    {
+        var requestData =
+            $"UserName: {UserName}, Password: {Password}, ApplicationName: {ApplicationName}, ApplicationKey: {ApplicationKey}";
+        await _requestStorage.AddRequestAsync(requestData);
+
+        // Mock token
+        var token = "YourMockToken";
+        return Ok(token);
+    }
+
+    [HttpPost("CreateDetailedInvoice")]
+    public async Task<IActionResult> CreateDetailedInvoice(
+        [FromQuery] string LoginToken,
+        [FromBody] object request)
     {
         var requestData = $"LoginToken: {LoginToken}, RequestBody: {request.ToString()}";
         await _requestStorage.AddRequestAsync(requestData);
